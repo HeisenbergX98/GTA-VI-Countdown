@@ -1,0 +1,25 @@
+@use "./variables" as *;
+
+.mid-section-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: $sectionBGColor;
+  background-clip: text;
+  color: transparent;
+  margin: 4vh 0;
+
+  h1 {
+    font-weight: 600;
+    line-height: 100%;
+
+    text: {
+      transform: uppercase;
+      align: center;
+      shadow: none;
+    }
+    &:hover {
+      color: transparent;
+    }
+  }
+}

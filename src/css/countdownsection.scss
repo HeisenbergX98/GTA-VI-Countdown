@@ -1,0 +1,58 @@
+@use "./variables" as *;
+
+.countdown-container {
+  // background-color: beige;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 2%;
+
+  .countdown-timer {
+    // background-color: aqua;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      text-transform: uppercase;
+      color: $hoverColor;
+      user-select: none;
+      font: {
+        size: clamp(0.9em, 1vw, 0.5em);
+        weight: 600;
+      }
+    }
+  }
+
+  .colon-wrapper {
+    display: flex;
+    h1 {
+      font-weight: 600;
+    }
+  }
+}
+
+h1 {
+  user-select: none;
+  margin: 0;
+  text-shadow: $generalShadow;
+
+  font: {
+    size: clamp(3rem, 0.1818rem + 5.6364vw, 5rem);
+    weight: 500;
+  }
+
+  &:hover {
+    color: $hoverColor;
+  }
+}
+
+@media (max-width: 768px) {
+  .countdown-container {
+    .countdown-timer {
+      width: 18%;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 9vh;
+  padding-bottom: 3vh;
+}
+.header-container .logo-icon-wrapper {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+.header-container .logo-icon-wrapper img {
+  width: 66px;
+  height: 46px;
+}
+.header-container .logo-wrapper img {
+  width: 250px;
+  height: 160px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.header-container .navbar-wrapper {
+  z-index: 2;
+  width: 3.7vw;
+}
+.header-container .navbar-wrapper svg {
+  cursor: pointer;
+}
+.header-container .navbar-wrapper svg:hover {
+  fill: rgb(252, 246, 212);
+}
+.header-container .navbar-wrapper .navbar-close-svg {
+  background-color: rgba(61, 61, 61, 0.385);
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+.header-container .navbar-wrapper .navbar-close-svg:hover {
+  background-color: rgba(97, 96, 96, 0.385);
+}
+.header-container .nav-bar-menu {
+  position: absolute;
+}
+@media (max-width: 768px) {
+  .header-container {
+    padding-left: 3vh;
+  }
+  .header-container .logo-wrapper img {
+    width: 150px;
+    height: 100px;
+  }
+}/*# sourceMappingURL=header.css.map */
