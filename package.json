@@ -2,7 +2,7 @@
   "name": "gta-vi-countdown",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://heisenbergx98.github.io/GTA-6-Countdown/",
+  "homepage": "https://heisenbergx98.github.io/GTA-VI-Countdown/",
   "type": "module",
   "scripts": {
     "dev": "vite",
