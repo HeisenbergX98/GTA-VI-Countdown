@@ -3,7 +3,7 @@ import "../css/navbar.css";
 import { trailerData } from "../data/trailer";
 import { backgrounds } from "../data/backgroundData";
 
-const NavBar = () => {
+const NavBar = ({ menuNavBar }: { menuNavBar: boolean }) => {
   const [backgroundBtn, toggleBackgroundBtn] = useReducer(
     (backgroundBtn) => !backgroundBtn,
     true
@@ -25,7 +25,14 @@ const NavBar = () => {
     toggleTrailerBtn();
   };
   return (
-    <div className="navBar-container">
+    <div
+      style={{
+        animation: menuNavBar
+          ? "slideIn 0.3s forwards"
+          : "slideOut 0.3s forwards",
+      }}
+      className="navBar-container"
+    >
       <div className="navbar-options-container">
         <button
           style={{
@@ -51,22 +58,21 @@ const NavBar = () => {
       <div className="options-wrapper">
         {backgroundBtn ? (
           <div className="background-wrapper">
-            <ul>
-              {backgrounds.map((bg) => {
-                return (
+            {backgrounds.map((bg) => {
+              return (
+                <ul key={bg.id}>
                   <li
                     onClick={() =>
                       bg.background_img
                         ? (document.body.style.backgroundImage = `url(${bg.background_img})`)
                         : (document.body.style.background = "")
                     }
-                    
                   >
                     {bg.name}
                   </li>
-                );
-              })}
-            </ul>
+                </ul>
+              );
+            })}
           </div>
         ) : (
           ""
