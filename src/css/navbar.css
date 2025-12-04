@@ -8,7 +8,6 @@
   right: 0;
   z-index: 1;
   box-shadow: 0 0 15px #707092;
-  animation: slideIn 0.3s forwards;
 }
 .navBar-container .navbar-options-container {
   margin: 9.5vh;
@@ -41,15 +40,12 @@
   display: flex;
   height: 100%;
 }
-.navBar-container .options-wrapper .background-wrapper {
-  display: flex;
-}
 .navBar-container .options-wrapper .background-wrapper ul {
   padding: 0 9.5vh;
   list-style: none;
 }
 .navBar-container .options-wrapper .background-wrapper ul li {
-  font-size: clamp(2rem, 0.1818rem + 3.6364vw, 3rem);
+  font-size: clamp(2rem, 0.1818rem + 3.6364vw, 2.5rem);
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;

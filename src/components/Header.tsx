@@ -2,10 +2,28 @@ import "../css/header.css";
 import IconLogo from "../assets/logo-white.png";
 import Logo from "../assets/logo.webp";
 import NavBar from "./NavBar";
-import { useReducer } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
-  const [menuNavBar, toggleMenuNavBar] = useReducer((navBar) => !navBar, false);
+  const [menuNavBar, toggleMenuNavBar] = useState<boolean>(false);
+  const [isNavBarRendered, setIsNavBarRendered] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (menuNavBar) {
+      // If the menu opens, render the NavBar immediately.
+      setIsNavBarRendered(true);
+    } else {
+      // If the menu closes, wait for the animation to finish before unmounting.
+      const timer = setTimeout(() => {
+        setIsNavBarRendered(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [menuNavBar]);
+
+  const toggleMenu = () => {
+    toggleMenuNavBar((prev) => !prev);
+  };
 
   return (
     <div className="header-container">
@@ -23,10 +41,10 @@ const Header = () => {
             viewBox="0 -960 960 960"
             width="48px"
             fill="#FFFFFF"
-            onClick={() => toggleMenuNavBar()}
+            onClick={toggleMenu}
             className="navbar-close-svg"
           >
-            <path d="m300-258-42-42 180-180-180-179 42-42 180 180 179-180 42 42-180 179 180 180-42 42-179-180-180 180Z"/>
+            <path d="m300-258-42-42 180-180-180-179 42-42 180 180 179-180 42 42-180 179 180 180-42 42-179-180-180 180Z" />
           </svg>
         ) : (
           <svg
@@ -35,13 +53,13 @@ const Header = () => {
             viewBox="0 -960 960 960"
             width="53px"
             fill="#FFFFFF"
-            onClick={() => toggleMenuNavBar()}
+            onClick={toggleMenu}
           >
             <path d="M160-280v-120h640v120H160Zm0-280v-120h640v120H160Z" />
           </svg>
         )}
       </div>
-      {menuNavBar ? <NavBar /> : ""}
+      {isNavBarRendered ? <NavBar menuNavBar={menuNavBar} /> : null}
     </div>
   );
 };
